@@ -40,5 +40,9 @@ Hemos llegado a la lista de futuros clientes!!!
 
 </table>
 
+<br/>
+
+<input type="button" value="agregar cliente" onClick="window.location.href='muestraFormularioAgregar'; return false;"/>
+
 </body>
 </html>

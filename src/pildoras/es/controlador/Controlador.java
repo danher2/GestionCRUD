@@ -7,7 +7,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import pildoras.es.controlador.entity.Cliente;
@@ -39,6 +40,30 @@ public class Controlador {
 		return "lista-clientes";  //nos devuelve el jsp
 		
 		
+	}
+	
+	@RequestMapping("/muestraFormularioAgregar") //mapeo al formulario para insertar registros, sigo teniendo duda?
+	public String MuestraFormularioAgregar(Model elmodelo) {
+		
+		//creamos un objeto vacio
+		Cliente elcliente =  new Cliente();
+		
+		// este seria para agregar los atribnutos del objeto al cliente
+		elmodelo.addAttribute("cliente", elcliente);
+		
+		return "muestraFormularioAgregar"; //regresa el formulario
+	}
+	
+	
+	@PostMapping("/insertarCliente")
+	public String insertarCliente(@ModelAttribute("cliente") Cliente elcliente ) {
+		
+		// inserta cliente en la BBDD
+		clienteDAO.insertarCliente(elcliente);
+		
+		
+		
+		return "redirect:/cliente/lista"; // redirecciona a la lista de cliente
 	}
 	
 }
