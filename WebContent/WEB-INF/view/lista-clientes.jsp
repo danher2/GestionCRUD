@@ -22,16 +22,24 @@ Hemos llegado a la lista de futuros clientes!!!
 <th>Nombre</th>
 <th>Apellido</th>
 <th>Email</th>
+<th>Modificar</th>
 
 </tr>
 
 <c:forEach var="clienteTemp" items="${clientes }">
+
+<c:url var="linkActualizar" value="/cliente/muestraFormularioActualizar">
+
+<c:param name="clienteId" value="${clienteTemp.id}"></c:param>
+
+</c:url>
 
 <tr>
 
 <td>${clienteTemp.nombre}</td>
 <td>${clienteTemp.apellido}</td>
 <td>${clienteTemp.email}</td>
+<td><a href="${linkActualizar }"><input type="button" value="modificar"/></a></td>
 
 </tr>
 
