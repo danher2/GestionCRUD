@@ -10,4 +10,6 @@ public interface ClienteDAO {
 
 	public void insertarCliente(Cliente elcliente);
 
+	public Cliente getCliente(int id);
+
 }
