@@ -63,4 +63,21 @@ public class ClienteDAOclase implements ClienteDAO {
 		return elcliente;
 	}
 
+
+	@Override
+	public void eliminarCliente(int id) {
+		
+		//obtener la session 
+		Session misesion =sessionFactory.getCurrentSession(); // ya tenemos la sesion actual
+		
+		
+		//borrar cliente
+		Query consulta = misesion.createQuery("delete from Cliente where id = : Id");
+		
+		consulta.setParameter("Id", id);
+		
+		consulta.executeUpdate();
+		
+	}
+
 }
