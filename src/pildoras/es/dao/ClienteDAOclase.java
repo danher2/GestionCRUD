@@ -45,8 +45,8 @@ public class ClienteDAOclase implements ClienteDAO {
 				Session misesion =sessionFactory.getCurrentSession(); // ya tenemos la sesion actual
 				
 		// insertar por fin el maldito cliente
-				misesion.save(elcliente);
-		
+				//misesion.save(elcliente);
+				misesion.saveOrUpdate(elcliente); // un mismo boton de formulario hace dos tareas
 	}
 
 
